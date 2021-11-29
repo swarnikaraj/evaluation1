@@ -145,7 +145,7 @@ app.get('/jobs/:notice_period',async (req,res)=>{
 
 // find all jobs by sorting the jobs as per their rating.
 
-app.get('/jobs/:rating',async (req,res)=>{
+app.get('/jobs/rating',async (req,res)=>{
 
     try{
 
