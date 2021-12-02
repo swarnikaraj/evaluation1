@@ -69,13 +69,10 @@ app.get('/jobs/:city/:skill',async (req,res)=>{
 
 try{
 
-    const jobs=await Job.find().lean().exec()
+    const jobs=await Job.find({city:req.params.city}).lean().exec()
 
-    const cityWiseJobs=jobs.filter((job)=>job.city==req.params.city)
 
-    const cityAndSkillWiseJobs=cityWiseJobs.filter((jov)=>jov.skill==req.params.skill)
-
-    return res.status(201).send(cityAndSkillWiseJobs)
+    return res.status(201).send(jobs)
 }
 
 catch(e){
@@ -100,9 +97,9 @@ app.get('/jobs/:work_from_home',async (req,res)=>{
 
     try{
     
-        const jobs=await Job.find().lean().exec()
-        const wfh_jobs=jobs.filter((job)=>{job.work_from_home==req.params.work_from_home})
-        return res.status(201).send(wfh_jobs)
+        const jobs=await Job.find({work_from_home:1}).lean().exec()
+        
+        return res.status(201).send(jobs)
     }
     
     catch(e){
@@ -125,9 +122,9 @@ app.get('/jobs/:notice_period',async (req,res)=>{
 
     try{
     
-        const jobs=await Job.find().lean().exec()
-        const filteredjob=jobs.filter((job)=>{job.notice_period==req.params.notice_period})
-        return res.status(201).send(filteredjob)
+        const jobs=await Job.find({notice_period:1}).lean().exec()
+       
+        return res.status(201).send(jobs)
     
     }
     
@@ -195,8 +192,6 @@ app.get('/company/:id',async (req,res)=>{
     })
 
 // find the company that has the most open jobs
-
-
 
 
 
