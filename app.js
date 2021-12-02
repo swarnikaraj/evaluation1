@@ -11,7 +11,7 @@ const connect=()=>{
 }
 
 
-const jobSchma=mongoose.Schema(
+const jobSchma= mongoose.Schema(
     {
 
 
