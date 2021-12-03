@@ -147,7 +147,7 @@ app.get('/jobs/rating',async (req,res)=>{
     try{
 
         const jobs=await Job.find().lean().exec()
-        const filteredjob=jobs.sort(function(a,b){return a.rating-b.rating})
+        const filteredjob=jobs.sort({rating:1})
         return res.status(201).send(filteredjob)
     
    
