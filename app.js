@@ -7,7 +7,7 @@ const mongoose=require('mongoose')
 app.use(express.json())
 
 const connect=()=>{
-   return  mongoose.connect('mongodb://127.0.0.1:27017')
+   return  mongoose.connect('mongodb://127.0.0.1:27017/evalution')
 }
 
 
